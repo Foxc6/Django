@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>All Heroes</title>
+    </head>
+    <body>
+        <h1>Heroes</h1>
+        <a href='new_hero'>Add Hero</a>
+        <a href='new_power'>Add Power</a>
+    	<table>
+    		<tr>
+	    		<th>Name</th>
+	    	</tr>
+    		{% for hero in heroes %}
+	    		<tr>
+		    		<td><a href="/show_hero/hero/{{hero.id}}">{{hero.name}}</a></td>
+	    		</tr>
+    		{% endfor %}
+    	</table>
+    </body>
+</html>

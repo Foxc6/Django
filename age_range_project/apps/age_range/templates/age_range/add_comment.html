@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Add Comment</title>
+    </head>
+    <body>
+
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <p style='color:red;'>{{message}}</p>
+            {% endif %}
+            {% if message.tags == 'success' %}
+                <p style='color:green;'>{{message}}</p>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+        <h3>Add Comment</h3>
+        <div>
+            <form action='/add_comment' method='post'>
+                {% csrf_token %}
+                <input type='text', name='content' placeholder='Add a comment'><br>
+                <input type='submit', value='Submit'>
+            </form>
+        </div>
+    </body>
+</html>

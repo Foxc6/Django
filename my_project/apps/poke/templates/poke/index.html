@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>All Users</title>
+    </head>
+    <body>
+    <p style='margin-left: 70px; display: inline-block;'>Welcome, {{request.session.user_name}}!</p>
+    <a style='margin-left: 70px; display: inline-block;' href='/logout'>Logout</a>
+    <div style='overflow:auto; outline: thin solid black; height: 200px; width: 400px; margin-left: 70px;'>
+        <h4>You have been poked {{poked_count}} times!</h4>
+        {% for user in user_poked_by %}
+            <p>{{user}} poked you X times!<p>
+        {% endfor %}
+    </div>
+    <table style='margin-left: 70px; margin-top: 15px;'>
+    	<tr>
+    		<th>Name</th>
+    		<th>Alias</th>
+    		<th>Email</th>
+            <th>Poke</th>
+    	</tr>
+    		{% for user in users %}
+    			{% if user.id != request.session.user_id %}
+    			<tr>
+    				<td>{{user.name}}</td>
+    				<td>{{user.alias}}</td>
+    				<td>{{user.email}}</td>
+                    <td><a href="/add_poke/user/{{user.id}}">Poke</a></td>
+    			</tr>
+    			{% endif %}
+    		{% endfor %}
+    </table>
+    </body>
+</html>

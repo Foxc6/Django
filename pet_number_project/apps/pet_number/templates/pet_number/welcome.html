@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Add Pet</title>
+    </head>
+    <body>
+        <h1>Select Pet Type or Create a New Pet Type</h1>
+        <form action='/create_pet' method="POST">
+			{% csrf_token %}
+			Select Pet Type: 
+            <select name='pet_select' action='/create_pet' method="POST">
+                {% for pet in pets %}
+                    <option value="{{pet.id}}">{{pet.name}}</option>
+                {% endfor %}
+            </select>
+			Add Pet Type: <input type="text" name="name">
+			<input type="submit" name="submit" value="Submit">
+		</form>
+    </body>
+</html>

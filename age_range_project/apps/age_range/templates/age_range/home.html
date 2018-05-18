@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Main</title>
+    </head>
+    <body>
+        <p>Welcome, {{request.session.user_name}}! <a href='/logout'> Logout</a></p>
+        <!-- Loop through users under the age of 10 -->
+        <a href='/under_10'>Under 10</a>
+        <a href='/eleven_18'>11-18</a>
+        <a href='/nineteen_24'>19-24</a>
+        <a href='/twentyfive_35'>25-35</a>
+        <a href='/thirtysix_50'>36-50</a>
+        <a href='/over_51'>Over 51</a>
+    </body>
+</html>

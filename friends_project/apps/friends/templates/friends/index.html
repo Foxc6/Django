@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>All Users</title>
+    </head>
+    <body>
+    <h2 style='margin-left: 70px; display: inline-block;'>Hello, {{request.session.user_name}}!</h2>
+    <a style='margin-left: 70px; display: inline-block;' href='/logout'>Logout</a>
+    <table style='margin-left: 70px; margin-top: 15px;'>
+    	<p style='margin-left: 70px;'>Here is a list of your friends:</p>
+    	<tr>
+    		<th>Alias</th>
+            <th>Action</th>
+    	</tr>
+            <p>{{friends.count}}</p>
+    		{% if friends.count > 0 %}
+	    		{% for user in friends %}
+	    			<tr>
+	    				<td>{{user.alias}}</td>
+	    				<td><a href="/show_user/user/{{user.id}}">View Profile</a></td>
+	    				<td><a href="/remove_friend/remove_friend/{{user.id}}">Remove as Friend</a></td>
+	    			</tr>
+	    		{% endfor %}
+	    	{% endif %}
+    		{% if friends.count < 1 %}
+	    		<h1 style='margin-left: 70px;'>You are total loser and have no friends!</h1>
+	    	{% endif %}
+    </table>
+    <table style='margin-left: 70px; margin-top: 15px;'>
+    	<p style='margin-left: 70px;'>Other Users not on your friends list:</p>
+    	<tr>
+    		<th>Alias</th>
+            <th>Action</th>
+    	</tr>
+    		{% for user in non_friends %}
+    			<tr>
+    				<td>{{user.alias}}</td>
+    				<td><a href="/show_user/user/{{user.id}}">View Profile</a></td>
+    				<td><a href="/add_friend/new_friend/{{user.id}}">Add as Friend</a></td>
+    			</tr>
+    		{% endfor %}
+    </table>
+    </body>
+</html>

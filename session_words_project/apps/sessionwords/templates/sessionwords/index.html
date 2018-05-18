@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Session Words</title>
+    </head>
+    <body>
+        <h1>Add a New Word</h1>
+        <form action='/add' method="POST">
+			{% csrf_token %}
+			Add to Session: <input type="text" name="word"><br>
+			<input type="radio" name="color" value="green"> Green<br>
+			<input type="radio" name="color" value="red"> Red<br>
+			<input type="radio" name="color" value="blue"> Blue<br>
+			Show in BIG fonts! <input type="checkbox" name="largefont" value=""><br>
+			<input type="submit" name="submit" value="Generate"><br>
+		</form>
+
+		<p>{{request.session.word}}</p>
+
+		<form action='/reset'>
+			<input type='submit' name='submit' value='Reset'>
+		</form>
+    </body>
+</html>

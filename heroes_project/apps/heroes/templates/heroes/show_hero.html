@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Show Hero</title>
+    </head>
+    <body>
+    	<a href='/hero_index'>Home</a>
+        <h1>{{hero.name}}</h1>
+		{% for power in powers %}
+        	<p>{{ power.name }}</p>
+		{% endfor %}
+    </body>
+</html>

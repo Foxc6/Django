@@ -1,0 +1,33 @@
+
+
+?AgeRange?
+0-10
+11-18
+19-24
+25-35
+36-50
+51+
+
+
+
+////Create Validations////
+Name must be entered and greater than 1 character
+Age must be entered and be an integer
+
+
+_______________________________________________________________________________________________
+
+TODO
+
+* To add a comment to an age-range section, the user must be in that age range
+	** Get current user age
+	** In view methods for each template, check if age is within range by running check_age method in views
+	** If age is within range, run add_comment method
+	** Link comment to the user and add to the template table.
+* Display comments for each age group in list view
+
+
+* Display top 3 age groups
+
+* Fix delete button
+

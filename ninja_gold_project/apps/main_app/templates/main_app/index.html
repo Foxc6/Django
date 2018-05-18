@@ -1,0 +1,35 @@
+<html>
+<head></head>
+<body>
+	<p>Your Gold {{requst.session.gold}}</p>
+	<div style='outline: thin solid black; height: 200px; width 200px;'>
+		<form action='/process'>
+			{% csrf_token %}
+			<input type='hidden' name='building', value='house'>
+			<input type='submit' value='Go to Building'>
+		</form>
+	</div>
+
+	<div style='outline: thin solid black; height: 200px; width 200px;'>
+		<form action='/process'>
+			{% csrf_token %}
+			<input type='hidden' name='building', value='farm'>
+			<input type='submit' value='Go to Building'>
+		</form>
+	</div>
+
+	<div style='outline: thin solid black; height: 200px; width 200px;'>
+		<form action='/process'>
+			{% csrf_token %}
+			<input type='hidden' name='building', value='school'>
+			<input type='submit' value='Go to Building'>
+		</form>
+	</div>
+
+	<div style='outline: thin solid black; height: 400px; width 600px;'>
+		{% for thingy in request.session.activities %}
+		<p>{{thingy}} in your box</p>
+		{% endfor %}
+	</div>
+</body>
+</html>

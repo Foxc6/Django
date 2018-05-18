@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Under 10</title>
+</head>
+<body>
+	<p>Welcome, {{request.session.user_name}}!</p>
+	<a href='/logout'>Logout</a>
+	<!-- Loop through users under the age of 10 -->
+	<h3>0-10</h3>
+    <table>
+    	<tr>
+    		<th>Name</th>
+    		<th>Age</th>
+    	</tr>
+    	{% for user in users %}
+    		{% if user.age <= 10 %}
+    			<tr>
+    				<td>{{user.name}}</td>
+    				<td>{{user.age}}</td>
+    				<td><a href={% url 'delete' user.id %}>Delete</td>
+    			</tr>
+    		{% endif %}
+		{% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,9 @@
+Add Pokes
+*Add view method that creates a poke
+*Add button to index view to call the poke method
+*List all users that have poked the logged in user
+*Add a tally of the total number of times that the logged in user has been poked
+*Add a tally for how many times the logged in user has been poked by each user
+
+Login
+*Update login

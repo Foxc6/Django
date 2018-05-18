@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Pets</title>
+    </head>
+    <body>
+        <h1>Results</h1>
+        {% for pet in pets %}
+        	<p>{{pet.name}} {{pet.count}}</p>
+        {% endfor %}
+    </body>
+</html>
